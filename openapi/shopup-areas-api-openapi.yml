@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info:
+  title: REDX Open Areas API
+  version: v1.0.0-beta
+  description: REDX Open API lets merchants integrate with REDX — the last-mile delivery and courier network operated by ShopUp — to create and track parcels and to manage pickup stores across Bangladesh. Authentication uses a merchant API access token passed in the API-ACCESS-TOKEN header.
+  contact:
+    name: REDX Developer API
+    url: https://redx.com.bd/developer-api/
+servers:
+- url: https://openapi.redx.com.bd/v1.0.0-beta
+  description: Production
+- url: https://sandbox.redx.com.bd/v1.0.0-beta
+  description: Sandbox (simulated transactions, no impact on real data)
+security:
+- apiAccessToken: []
+tags:
+- name: Areas
+  description: Deliverable areas / zones
+paths:
+  /areas:
+    get:
+      tags:
+      - Areas
+      operationId: listAreas
+      summary: List deliverable areas
+      description: Returns the deliverable areas / zones REDX serves, including each area's id used when creating a parcel.
+      responses:
+        '200':
+          description: Area list
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        status_code:
+          type: integer
+  responses:
+    Unauthorized:
+      description: Missing or invalid API-ACCESS-TOKEN
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            message: Unauthorized
+            status_code: 401
+  securitySchemes:
+    apiAccessToken:
+      type: apiKey
+      in: header
+      name: API-ACCESS-TOKEN
+      description: 'Merchant access token, sent as: API-ACCESS-TOKEN: Bearer {jwt_token}'

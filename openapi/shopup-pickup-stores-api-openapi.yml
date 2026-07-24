@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: REDX Open Areas Pickup Stores API
+  version: v1.0.0-beta
+  description: REDX Open API lets merchants integrate with REDX — the last-mile delivery and courier network operated by ShopUp — to create and track parcels and to manage pickup stores across Bangladesh. Authentication uses a merchant API access token passed in the API-ACCESS-TOKEN header.
+  contact:
+    name: REDX Developer API
+    url: https://redx.com.bd/developer-api/
+servers:
+- url: https://openapi.redx.com.bd/v1.0.0-beta
+  description: Production
+- url: https://sandbox.redx.com.bd/v1.0.0-beta
+  description: Sandbox (simulated transactions, no impact on real data)
+security:
+- apiAccessToken: []
+tags:
+- name: Pickup Stores
+  description: Merchant pickup store management
+paths:
+  /pickup/stores:
+    get:
+      tags:
+      - Pickup Stores
+      operationId: listPickupStores
+      summary: List pickup stores
+      description: Returns the merchant's registered pickup stores.
+      responses:
+        '200':
+          description: Pickup store list
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /pickup/store:
+    post:
+      tags:
+      - Pickup Stores
+      operationId: createPickupStore
+      summary: Create a pickup store
+      description: Registers a new pickup store for the merchant.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PickupStoreCreate'
+      responses:
+        '200':
+          description: Pickup store created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /pickup/store/info/{id}:
+    get:
+      tags:
+      - Pickup Stores
+      operationId: getPickupStoreInfo
+      summary: Get pickup store details
+      description: Returns the detail record for a single pickup store.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Pickup store detail
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API-ACCESS-TOKEN
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            message: Unauthorized
+            status_code: 401
+  schemas:
+    PickupStoreCreate:
+      type: object
+      required:
+      - name
+      - phone
+      - address
+      - area_id
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        address:
+          type: string
+        area_id:
+          type: integer
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        status_code:
+          type: integer
+  securitySchemes:
+    apiAccessToken:
+      type: apiKey
+      in: header
+      name: API-ACCESS-TOKEN
+      description: 'Merchant access token, sent as: API-ACCESS-TOKEN: Bearer {jwt_token}'
