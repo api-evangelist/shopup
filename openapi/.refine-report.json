@@ -1,0 +1,18 @@
+{
+  "provider": "shopup",
+  "sources": [
+    "shopup-areas-api-openapi.yml",
+    "shopup-parcels-api-openapi.yml",
+    "shopup-pickup-stores-api-openapi.yml"
+  ],
+  "outputs": [
+    "shopup-areas-api-openapi.yml",
+    "shopup-parcels-api-openapi.yml",
+    "shopup-pickup-stores-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

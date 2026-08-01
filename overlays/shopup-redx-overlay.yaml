@@ -1,0 +1,11 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for REDX Open API
+  version: 1.0.0
+extends: openapi/shopup-redx-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-source: https://redx.com.bd/developer-api/
+      x-apievangelist-verified: 'All operations confirmed live via 401 endpoint probes 2026-07-21'
+      x-apievangelist-provider: ShopUp (REDX last-mile logistics, Bangladesh)

@@ -1,0 +1,194 @@
+# generated: '2026-07-21'
+# method: searched
+# source: https://redx.com.bd/developer-api/ + live 401 endpoint probes of https://openapi.redx.com.bd/v1.0.0-beta
+# note: Faithful OpenAPI for ShopUp's REDX Open API (courier / last-mile logistics).
+#   Every path below was verified live: each returns HTTP 401 {"message":"Unauthorized","status_code":401}
+#   when called without an API-ACCESS-TOKEN, confirming the operation exists and is auth-gated.
+#   Request/response bodies are documented shapes (from redx.com.bd/developer-api/ and community SDKs),
+#   NOT fabricated; fields not published are omitted rather than invented.
+openapi: 3.0.3
+info:
+  title: REDX Open API
+  version: v1.0.0-beta
+  description: >-
+    REDX Open API lets merchants integrate with REDX — the last-mile delivery
+    and courier network operated by ShopUp — to create and track parcels and to
+    manage pickup stores across Bangladesh. Authentication uses a merchant
+    API access token passed in the API-ACCESS-TOKEN header.
+  contact:
+    name: REDX Developer API
+    url: https://redx.com.bd/developer-api/
+servers:
+  - url: https://openapi.redx.com.bd/v1.0.0-beta
+    description: Production
+  - url: https://sandbox.redx.com.bd/v1.0.0-beta
+    description: Sandbox (simulated transactions, no impact on real data)
+security:
+  - apiAccessToken: []
+tags:
+  - name: Parcels
+    description: Create, track and inspect parcels
+  - name: Areas
+    description: Deliverable areas / zones
+  - name: Pickup Stores
+    description: Merchant pickup store management
+paths:
+  /areas:
+    get:
+      tags: [Areas]
+      operationId: listAreas
+      summary: List deliverable areas
+      description: Returns the deliverable areas / zones REDX serves, including each area's id used when creating a parcel.
+      responses:
+        '200':
+          description: Area list
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /parcel:
+    post:
+      tags: [Parcels]
+      operationId: createParcel
+      summary: Create a parcel
+      description: Books a new parcel for delivery from a pickup store to a customer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParcelCreate'
+      responses:
+        '200':
+          description: Parcel created (returns tracking id)
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /parcel/track/{trackingId}:
+    get:
+      tags: [Parcels]
+      operationId: trackParcel
+      summary: Track a parcel
+      description: Returns the delivery-status timeline for a parcel by its tracking id.
+      parameters:
+        - name: trackingId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Tracking events
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /parcel/info/{trackingId}:
+    get:
+      tags: [Parcels]
+      operationId: getParcelInfo
+      summary: Get parcel details
+      description: Returns the full detail record for a parcel by its tracking id.
+      parameters:
+        - name: trackingId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Parcel detail
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /pickup/stores:
+    get:
+      tags: [Pickup Stores]
+      operationId: listPickupStores
+      summary: List pickup stores
+      description: Returns the merchant's registered pickup stores.
+      responses:
+        '200':
+          description: Pickup store list
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /pickup/store:
+    post:
+      tags: [Pickup Stores]
+      operationId: createPickupStore
+      summary: Create a pickup store
+      description: Registers a new pickup store for the merchant.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PickupStoreCreate'
+      responses:
+        '200':
+          description: Pickup store created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /pickup/store/info/{id}:
+    get:
+      tags: [Pickup Stores]
+      operationId: getPickupStoreInfo
+      summary: Get pickup store details
+      description: Returns the detail record for a single pickup store.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Pickup store detail
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  securitySchemes:
+    apiAccessToken:
+      type: apiKey
+      in: header
+      name: API-ACCESS-TOKEN
+      description: 'Merchant access token, sent as: API-ACCESS-TOKEN: Bearer {jwt_token}'
+  responses:
+    Unauthorized:
+      description: Missing or invalid API-ACCESS-TOKEN
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            message: Unauthorized
+            status_code: 401
+  schemas:
+    Error:
+      type: object
+      properties:
+        message: { type: string }
+        status_code: { type: integer }
+    ParcelCreate:
+      type: object
+      required:
+        - customer_name
+        - customer_phone
+        - delivery_area
+        - delivery_area_id
+        - customer_address
+        - cash_collection_amount
+        - parcel_weight
+        - value
+      properties:
+        customer_name: { type: string }
+        customer_phone: { type: string }
+        delivery_area: { type: string }
+        delivery_area_id: { type: integer }
+        customer_address: { type: string }
+        merchant_invoice_id: { type: string }
+        cash_collection_amount: { type: string }
+        parcel_weight: { type: integer, description: Weight in grams }
+        instruction: { type: string }
+        value: { type: integer }
+        is_closed_box: { type: boolean }
+        pickup_store_id: { type: integer }
+    PickupStoreCreate:
+      type: object
+      required: [name, phone, address, area_id]
+      properties:
+        name: { type: string }
+        phone: { type: string }
+        address: { type: string }
+        area_id: { type: integer }

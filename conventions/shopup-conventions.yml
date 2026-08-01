@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shopup-redx-openapi.yml + https://redx.com.bd/developer-api/
+note: >-
+  Cross-cutting request/response semantics for the REDX Open API. Only conventions
+  the provider actually publishes or that are observable from the live API are
+  recorded. REDX does not document an idempotency-key mechanism, so no Idempotency
+  contract is asserted.
+authentication:
+  style: api-key
+  header: API-ACCESS-TOKEN
+  value_format: 'Bearer {jwt_token}'
+  see: authentication/shopup-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1.0.0-beta
+error_envelope:
+  shape: '{ message: string, status_code: integer }'
+  see: errors/shopup-problem-types.yml
+idempotency:
+  documented: false
+pagination:
+  documented: false
+rate_limiting:
+  documented: false
+content_type: application/json
+environments:
+  production: https://openapi.redx.com.bd/v1.0.0-beta
+  sandbox: https://sandbox.redx.com.bd/v1.0.0-beta

@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: searched
+source: https://redx.com.bd/developer-api/ + live probe of https://sandbox.redx.com.bd/v1.0.0-beta
+note: >-
+  REDX publishes a dedicated sandbox environment where transactions are simulated
+  and do not affect real data. The sandbox base host was verified live (returns
+  HTTP 401 on /areas without an access token, same contract as production).
+  No published magic test values / fixture credentials were found; none are invented here.
+environments:
+  - name: sandbox
+    base_url: https://sandbox.redx.com.bd/v1.0.0-beta
+    purpose: Simulated transactions for integration testing; no impact on real data.
+    auth: API-ACCESS-TOKEN header (merchant sandbox token)
+    verified: '401 Unauthorized on GET /areas (host live, auth-gated)'
+  - name: production
+    base_url: https://openapi.redx.com.bd/v1.0.0-beta

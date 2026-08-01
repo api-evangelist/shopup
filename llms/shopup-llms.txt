@@ -1,0 +1,23 @@
+# ShopUp
+
+> ShopUp is a Bangladesh technology company connecting mills and manufacturers to a network of small neighbourhood shops. It operates Mokam (B2B commerce) and REDX (last-mile logistics / courier). REDX exposes a public merchant API for creating and tracking parcels.
+
+## APIs
+- [REDX Open API](https://redx.com.bd/developer-api/): Merchant courier API — create/track parcels, manage pickup stores. Base https://openapi.redx.com.bd/v1.0.0-beta, sandbox https://sandbox.redx.com.bd/v1.0.0-beta.
+
+## Specs
+- [OpenAPI](openapi/shopup-redx-openapi.yml): REDX Open API (7 operations, apiKey auth via API-ACCESS-TOKEN header)
+
+## Docs
+- [Developer API](https://redx.com.bd/developer-api/)
+- [REDX](https://redx.com.bd/)
+- [Mokam](https://mokam.com.bd/)
+- [ShopUp](https://shopup.org/)
+
+## Artifacts
+- [Authentication](authentication/shopup-authentication.yml)
+- [Conventions](conventions/shopup-conventions.yml)
+- [Error catalog](errors/shopup-problem-types.yml)
+- [Data model](data-model/shopup-data-model.yml)
+- [Sandbox](sandbox/shopup-sandbox.yml)
+- [Agent skill: create and track a parcel](skills/shopup-create-parcel.md)

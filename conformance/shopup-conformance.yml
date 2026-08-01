@@ -1,0 +1,13 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shopup-redx-openapi.yml
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: auth is a static merchant API access token (apiKey header), not OAuth2
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: errors use a custom { message, status_code } envelope, not application/problem+json
+  - id: openapi3
+    conforms: true
+    evidence: captured as OpenAPI 3.0.3

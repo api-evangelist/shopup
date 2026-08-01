@@ -1,22 +1,78 @@
 aid: shopup
 name: ShopUp
-description: 'ShopUp is a company surfaced as a portfolio company of prosus-ventures and added to the
-  API Evangelist network as a stub for enrichment. Sector: marketplace. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  ShopUp is a Bangladesh technology company that digitizes the country's small-business
+  supply chain, connecting mills and manufacturers to a network of hundreds of thousands
+  of neighbourhood shops. It operates Mokam, a B2B commerce platform where small retailers
+  source fast-moving consumer goods at fair prices, and REDX, a nationwide last-mile
+  logistics and courier network reaching sub-districts across all 64 districts. REDX
+  publishes a public merchant Open API that lets e-commerce sellers create and track
+  parcels and manage pickup stores programmatically. ShopUp is backed by Prosus Ventures
+  and in 2025 combined with Saudi Arabia's Sary to form the SILQ Group.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://cdn.prod.website-files.com/6538a2c4ccf1fed5a7d6e311/661e20ec03673cb2f41ff4c2_ShopUp-open-graph.jpg
 url: https://raw.githubusercontent.com/api-evangelist/shopup/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - prosus-ventures
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: has-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Marketplace
-apis: []
+- Logistics
+- Courier
+- Last Mile Delivery
+- B2B Commerce
+- Bangladesh
+- E-commerce
+- Fintech
+apis:
+- aid: shopup:shopup-areas-api
+  name: ShopUp Areas API
+  description: Deliverable areas / zones
+  humanURL: https://redx.com.bd/developer-api/
+  baseURL: https://openapi.redx.com.bd/v1.0.0-beta
+  tags:
+  - Areas
+  properties:
+  - type: OpenAPI
+    url: openapi/shopup-areas-api-openapi.yml
+- aid: shopup:shopup-parcels-api
+  name: ShopUp Parcels API
+  description: Create, track and inspect parcels
+  humanURL: https://redx.com.bd/developer-api/
+  baseURL: https://openapi.redx.com.bd/v1.0.0-beta
+  tags:
+  - Parcels
+  properties:
+  - type: OpenAPI
+    url: openapi/shopup-parcels-api-openapi.yml
+- aid: shopup:shopup-pickup-stores-api
+  name: ShopUp Pickup Stores API
+  description: Merchant pickup store management
+  humanURL: https://redx.com.bd/developer-api/
+  baseURL: https://openapi.redx.com.bd/v1.0.0-beta
+  tags:
+  - Pickup Stores
+  properties:
+  - type: OpenAPI
+    url: openapi/shopup-pickup-stores-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +81,50 @@ maintainers:
 common:
 - type: Website
   url: https://shopup.org
+- type: DeveloperPortal
+  url: https://redx.com.bd/developer-api/
+- type: Documentation
+  url: https://redx.com.bd/developer-api/
+- type: APIReference
+  url: https://redx.com.bd/developer-api/
+- type: GettingStarted
+  url: https://redx.com.bd/developer-api/
+- type: Blog
+  url: https://shopup.org/blog
+- type: Support
+  url: https://redx.com.bd/faq/
+- type: PrivacyPolicy
+  url: https://redx.com.bd/privacy-policy/
+- type: AgenticAccess
+  url: agentic-access/shopup-agentic-access.yml
+- type: Authentication
+  url: authentication/shopup-authentication.yml
+- type: DomainSecurity
+  url: security/shopup-domain-security.yml
+- type: MCPServer
+  url: mcp/shopup-mcp.yml
+- type: ErrorCatalog
+  url: errors/shopup-problem-types.yml
+- type: Conventions
+  url: conventions/shopup-conventions.yml
+- type: Sandbox
+  url: sandbox/shopup-sandbox.yml
+- type: DataModel
+  url: data-model/shopup-data-model.yml
+- type: Overlay
+  url: overlays/shopup-redx-overlay.yaml
+- type: Lifecycle
+  url: lifecycle/shopup-lifecycle.yml
+- type: Conformance
+  url: conformance/shopup-conformance.yml
+- type: Packages
+  url: packages/shopup-packages.yml
+- type: LLMsTxt
+  url: llms/shopup-llms.txt
+- type: AgentSkill
+  url: skills/shopup-create-parcel.md
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1

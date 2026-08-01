@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: Packagist search for REDX courier integration libraries
+note: >-
+  No first-party ShopUp/REDX SDK was found on any registry. The packages below are
+  community-maintained integrations for the REDX Open API — marked official:false.
+  No type:SDKs pointer is emitted because none are first-party.
+packages:
+  - language: php
+    registry: packagist
+    name: codeboxr/redx-courier
+    url: https://packagist.org/packages/codeboxrcodehub/redx-courier
+    repo: https://github.com/codeboxrcodehub/redx-courier
+    official: false
+  - language: php
+    registry: packagist
+    name: kejubayer/redx-api-integration
+    url: https://packagist.org/packages/kejubayer/redx-api-integration
+    official: false

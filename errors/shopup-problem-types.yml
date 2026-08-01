@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shopup-redx-openapi.yml + live probes of https://openapi.redx.com.bd/v1.0.0-beta
+format: custom
+note: >-
+  REDX Open API does not use RFC 9457 problem+json. Errors are returned as a
+  simple JSON envelope { message, status_code }. The 401 body below was observed
+  verbatim from live unauthenticated probes; other statuses are derived from the
+  OpenAPI response set.
+envelope:
+  fields:
+    - name: message
+      type: string
+    - name: status_code
+      type: integer
+problems:
+  - status: 401
+    title: Unauthorized
+    detail: Missing or invalid API-ACCESS-TOKEN header.
+    observed_body: '{"message":"Unauthorized","status_code":401}'
+    source_operation: openapi/shopup-redx-openapi.yml#listAreas

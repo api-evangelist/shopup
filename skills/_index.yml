@@ -1,0 +1,7 @@
+generated: '2026-07-21'
+method: generated
+skills:
+  - file: shopup-create-parcel.md
+    name: Create and track a REDX parcel
+    api: openapi/shopup-redx-openapi.yml
+    operations: [listPickupStores, listAreas, createParcel, trackParcel, getParcelInfo]

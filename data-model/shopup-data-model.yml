@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shopup-redx-openapi.yml
+note: Entity graph derived from the REDX Open API operations and their id-reference fields.
+entities:
+  - name: Parcel
+    operations: [createParcel, trackParcel, getParcelInfo]
+    key_fields: [trackingId, merchant_invoice_id]
+  - name: PickupStore
+    operations: [listPickupStores, createPickupStore, getPickupStoreInfo]
+    key_fields: [pickup_store_id, area_id]
+  - name: Area
+    operations: [listAreas]
+    key_fields: [delivery_area_id]
+relationships:
+  - from: Parcel
+    to: Area
+    type: belongs_to
+    via: delivery_area_id
+  - from: Parcel
+    to: PickupStore
+    type: belongs_to
+    via: pickup_store_id
+  - from: PickupStore
+    to: Area
+    type: belongs_to
+    via: area_id

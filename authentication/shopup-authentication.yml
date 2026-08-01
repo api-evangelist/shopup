@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/shopup-redx-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiAccessToken
+  type: apiKey
+  in: header
+  parameter: API-ACCESS-TOKEN
+  description: 'Merchant access token, sent as: API-ACCESS-TOKEN: Bearer {jwt_token}'
+  sources:
+  - openapi/shopup-redx-openapi.yml

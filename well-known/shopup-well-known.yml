@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: searched
+note: >-
+  No /.well-known discovery documents were found. shopup.org returns a hard 404;
+  redx.com.bd returns a Next.js soft-404 (SPA shell with "statusCode":404) for
+  well-known paths. Recorded as honest none-results; no WellKnown pointer emitted.
+hosts:
+  - host: https://shopup.org
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://redx.com.bd
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        note: soft-404 (Next.js SPA shell, statusCode 404 in payload; not a real security.txt)

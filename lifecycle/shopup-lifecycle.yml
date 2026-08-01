@@ -1,0 +1,11 @@
+generated: '2026-07-21'
+method: searched
+source: https://redx.com.bd/developer-api/ + openapi/shopup-redx-openapi.yml
+note: >-
+  Versioning is carried in the URI path (v1.0.0-beta). No public deprecation
+  policy, SLA, or status page was found for the REDX Open API; those fields are
+  left absent rather than invented.
+versioning:
+  scheme: uri-path
+  current: v1.0.0-beta
+deprecated_operations: []
