@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REDX Open Areas Parcels API",
+    "version": "v1.0.0-beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-ACCESS-TOKEN",
+      "value": "{{API-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parcels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a parcel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/parcel",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Books a new parcel for delivery from a pickup store to a customer."
+        },
+        {
+          "info": {
+            "name": "Track a parcel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/parcel/track/:trackingId",
+            "params": [
+              {
+                "name": "trackingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the delivery-status timeline for a parcel by its tracking id."
+        },
+        {
+          "info": {
+            "name": "Get parcel details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/parcel/info/:trackingId",
+            "params": [
+              {
+                "name": "trackingId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the full detail record for a parcel by its tracking id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,489 @@
+{
+  "item": [
+    {
+      "id": "f4e63dcb-2f08-4826-a9c5-b46f684cdb97",
+      "name": "Parcels",
+      "description": {
+        "content": "Create, track and inspect parcels",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1cd22af9-29c4-42b8-b989-e256b125543b",
+          "name": "Create a parcel",
+          "request": {
+            "name": "Create a parcel",
+            "description": {
+              "content": "Books a new parcel for delivery from a pickup store to a customer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parcel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customer_name\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"delivery_area\": \"<string>\",\n  \"delivery_area_id\": \"<integer>\",\n  \"customer_address\": \"<string>\",\n  \"cash_collection_amount\": \"<string>\",\n  \"parcel_weight\": \"<integer>\",\n  \"value\": \"<integer>\",\n  \"merchant_invoice_id\": \"<string>\",\n  \"instruction\": \"<string>\",\n  \"is_closed_box\": \"<boolean>\",\n  \"pickup_store_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "77d8c450-4bcf-4dec-809b-70f9a4bc29fd",
+              "name": "Parcel created (returns tracking id)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parcel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_name\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"delivery_area\": \"<string>\",\n  \"delivery_area_id\": \"<integer>\",\n  \"customer_address\": \"<string>\",\n  \"cash_collection_amount\": \"<string>\",\n  \"parcel_weight\": \"<integer>\",\n  \"value\": \"<integer>\",\n  \"merchant_invoice_id\": \"<string>\",\n  \"instruction\": \"<string>\",\n  \"is_closed_box\": \"<boolean>\",\n  \"pickup_store_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6ab9f0e5-0518-4bc5-bece-ed9b74367e64",
+              "name": "Missing or invalid API-ACCESS-TOKEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parcel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"customer_name\": \"<string>\",\n  \"customer_phone\": \"<string>\",\n  \"delivery_area\": \"<string>\",\n  \"delivery_area_id\": \"<integer>\",\n  \"customer_address\": \"<string>\",\n  \"cash_collection_amount\": \"<string>\",\n  \"parcel_weight\": \"<integer>\",\n  \"value\": \"<integer>\",\n  \"merchant_invoice_id\": \"<string>\",\n  \"instruction\": \"<string>\",\n  \"is_closed_box\": \"<boolean>\",\n  \"pickup_store_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\",\n  \"status_code\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57ee89df-1444-4148-893d-1dd3cf8f6f58",
+          "name": "Track a parcel",
+          "request": {
+            "name": "Track a parcel",
+            "description": {
+              "content": "Returns the delivery-status timeline for a parcel by its tracking id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parcel",
+                "track",
+                ":trackingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trackingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53369c74-44db-4a5d-9eff-0822eeef7257",
+              "name": "Tracking events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parcel",
+                    "track",
+                    ":trackingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "653bd120-1800-4290-8aba-90cbc327243b",
+              "name": "Missing or invalid API-ACCESS-TOKEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parcel",
+                    "track",
+                    ":trackingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\",\n  \"status_code\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cb075c5-8369-44b6-90af-02fce2147f62",
+          "name": "Get parcel details",
+          "request": {
+            "name": "Get parcel details",
+            "description": {
+              "content": "Returns the full detail record for a parcel by its tracking id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parcel",
+                "info",
+                ":trackingId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trackingId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12a04f47-2328-4fc7-adc5-086a55a770a8",
+              "name": "Parcel detail",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parcel",
+                    "info",
+                    ":trackingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31a2ad7d-cece-49e5-b4c8-2d0e5cea01b1",
+              "name": "Missing or invalid API-ACCESS-TOKEN",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parcel",
+                    "info",
+                    ":trackingId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "API-ACCESS-TOKEN",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Unauthorized\",\n  \"status_code\": 401\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://openapi.redx.com.bd/v1.0.0-beta",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "API-ACCESS-TOKEN"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ba84216a-4068-4d68-a297-4262d64cbc69",
+    "name": "REDX Open Areas Parcels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "REDX Open API lets merchants integrate with REDX — the last-mile delivery and courier network operated by ShopUp — to create and track parcels and to manage pickup stores across Bangladesh. Authentication uses a merchant API access token passed in the API-ACCESS-TOKEN header.\n\nContact Support:\n Name: REDX Developer API",
+      "type": "text/plain"
+    }
+  }
+}

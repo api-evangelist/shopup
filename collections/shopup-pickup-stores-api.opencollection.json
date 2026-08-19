@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REDX Open Areas Pickup Stores API",
+    "version": "v1.0.0-beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-ACCESS-TOKEN",
+      "value": "{{API-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pickup Stores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pickup stores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/pickup/stores"
+          },
+          "docs": "Returns the merchant's registered pickup stores."
+        },
+        {
+          "info": {
+            "name": "Create a pickup store",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/pickup/store",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Registers a new pickup store for the merchant."
+        },
+        {
+          "info": {
+            "name": "Get pickup store details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/pickup/store/info/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the detail record for a single pickup store."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

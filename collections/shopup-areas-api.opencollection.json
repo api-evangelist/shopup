@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "REDX Open Areas API",
+    "version": "v1.0.0-beta"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "API-ACCESS-TOKEN",
+      "value": "{{API-ACCESS-TOKEN}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Areas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List deliverable areas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://openapi.redx.com.bd/v1.0.0-beta/areas"
+          },
+          "docs": "Returns the deliverable areas / zones REDX serves, including each area's id used when creating a parcel."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

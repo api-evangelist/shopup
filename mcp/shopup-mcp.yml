@@ -2,31 +2,36 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/shopup-redx-openapi.yml
-note: >-
-  No official REDX/ShopUp hosted MCP server was found. This is a candidate tool
-  list derived one-to-one from the verified REDX Open API operations.
+note: No official REDX/ShopUp hosted MCP server was found. This is a candidate tool list derived one-to-one
+  from the verified REDX Open API operations.
 server:
   name: shopup-redx
   transport: http
 tools:
-  - name: list_areas
-    description: List deliverable areas / zones REDX serves
-    source_operation: openapi/shopup-redx-openapi.yml#listAreas
-  - name: create_parcel
-    description: Book a new parcel for delivery
-    source_operation: openapi/shopup-redx-openapi.yml#createParcel
-  - name: track_parcel
-    description: Track a parcel by its tracking id
-    source_operation: openapi/shopup-redx-openapi.yml#trackParcel
-  - name: get_parcel_info
-    description: Get full detail for a parcel by tracking id
-    source_operation: openapi/shopup-redx-openapi.yml#getParcelInfo
-  - name: list_pickup_stores
-    description: List the merchant's pickup stores
-    source_operation: openapi/shopup-redx-openapi.yml#listPickupStores
-  - name: create_pickup_store
-    description: Register a new pickup store
-    source_operation: openapi/shopup-redx-openapi.yml#createPickupStore
-  - name: get_pickup_store_info
-    description: Get detail for a single pickup store
-    source_operation: openapi/shopup-redx-openapi.yml#getPickupStoreInfo
+- name: list_areas
+  description: List deliverable areas / zones REDX serves
+  source_operation: openapi/shopup-redx-openapi.yml#listAreas
+- name: create_parcel
+  description: Book a new parcel for delivery
+  source_operation: openapi/shopup-redx-openapi.yml#createParcel
+- name: track_parcel
+  description: Track a parcel by its tracking id
+  source_operation: openapi/shopup-redx-openapi.yml#trackParcel
+- name: get_parcel_info
+  description: Get full detail for a parcel by tracking id
+  source_operation: openapi/shopup-redx-openapi.yml#getParcelInfo
+- name: list_pickup_stores
+  description: List the merchant's pickup stores
+  source_operation: openapi/shopup-redx-openapi.yml#listPickupStores
+- name: create_pickup_store
+  description: Register a new pickup store
+  source_operation: openapi/shopup-redx-openapi.yml#createPickupStore
+- name: get_pickup_store_info
+  description: Get detail for a single pickup store
+  source_operation: openapi/shopup-redx-openapi.yml#getPickupStoreInfo
+deployment:
+  mode: none
+  verified: derived
+  tools: 7
+  checked: '2026-08-12'
+  source: catalog MCP census
