@@ -9,6 +9,17 @@ description: >-
   publishes a public merchant Open API that lets e-commerce sellers create and track
   parcels and manage pickup stores programmatically. ShopUp is backed by Prosus Ventures
   and in 2025 combined with Saudi Arabia's Sary to form the SILQ Group.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
