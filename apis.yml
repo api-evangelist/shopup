@@ -82,6 +82,8 @@ apis:
   humanURL: https://redx.com.bd/developer-api/
   baseURL: https://openapi.redx.com.bd/v1.0.0-beta
   tags:
+  - Parcel
+  tags_raw:
   - Parcels
   properties:
   - type: OpenAPI
