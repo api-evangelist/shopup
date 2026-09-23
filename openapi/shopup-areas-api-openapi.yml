@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: REDX Open Areas API
   version: v1.0.0-beta
