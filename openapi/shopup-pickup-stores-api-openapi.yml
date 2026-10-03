@@ -66,6 +66,16 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: Missing or invalid API-ACCESS-TOKEN
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            message: Unauthorized
+            status_code: 401
   schemas:
     Error:
       type: object
@@ -90,16 +100,6 @@ components:
           type: string
         area_id:
           type: integer
-  responses:
-    Unauthorized:
-      description: Missing or invalid API-ACCESS-TOKEN
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            message: Unauthorized
-            status_code: 401
   securitySchemes:
     apiAccessToken:
       type: apiKey

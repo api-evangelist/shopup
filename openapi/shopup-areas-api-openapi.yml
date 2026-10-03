@@ -30,14 +30,6 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        status_code:
-          type: integer
   responses:
     Unauthorized:
       description: Missing or invalid API-ACCESS-TOKEN
@@ -48,6 +40,14 @@ components:
           example:
             message: Unauthorized
             status_code: 401
+  schemas:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        status_code:
+          type: integer
   securitySchemes:
     apiAccessToken:
       type: apiKey
