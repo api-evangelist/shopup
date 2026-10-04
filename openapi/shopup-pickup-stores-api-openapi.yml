@@ -77,13 +77,6 @@ components:
             message: Unauthorized
             status_code: 401
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        status_code:
-          type: integer
     PickupStoreCreate:
       type: object
       required:
@@ -99,6 +92,13 @@ components:
         address:
           type: string
         area_id:
+          type: integer
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        status_code:
           type: integer
   securitySchemes:
     apiAccessToken:
