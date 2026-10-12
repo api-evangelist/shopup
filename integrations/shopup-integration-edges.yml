@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/shopup/integrations
+- https://n8n.io/integrations/shopup/
+- https://composio.dev/toolkits/shopup
+- https://monid.ai/tools/shopup
+checked:
+- https://composio.dev/toolkits/shopup
+- https://monid.ai/tools/shopup
+- https://n8n.io/integrations/shopup/
+- https://zapier.com/apps/shopup/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
