@@ -83,13 +83,6 @@ components:
             message: Unauthorized
             status_code: 401
   schemas:
-    Error:
-      type: object
-      properties:
-        message:
-          type: string
-        status_code:
-          type: integer
     ParcelCreate:
       type: object
       required:
@@ -126,6 +119,13 @@ components:
         is_closed_box:
           type: boolean
         pickup_store_id:
+          type: integer
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+        status_code:
           type: integer
   securitySchemes:
     apiAccessToken:
