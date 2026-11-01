@@ -64,6 +64,118 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ShopUp is a company surfaced as a portfolio company of prosus-ventures and added to the API Evangelist network as a stub for enrichment. Sector: marketplace. This profile is a lead awaiting the enrichment pipeline.
+ShopUp is a Bangladesh technology company that digitizes the country's small-business supply chain, connecting mills and manufacturers to a network of hundreds of thousands of neighbourhood shops. It operates Mokam, a B2B commerce platform where small retailers source fast-moving consumer goods at fair prices, and REDX, a nationwide last-mile logistics and courier network reaching sub-districts across all 64 districts. REDX publishes a public merchant Open API that lets e-commerce sellers create and track parcels and manage pickup stores programmatically. ShopUp is backed by Prosus Ventures and in 2025 combined with Saudi Arabia's Sary to form the SILQ Group.
 
-Backed by: prosus-ventures — https://shopup.org
+**Areas:** Company · Marketplace · Logistics · Couriers · Last Mile Delivery · B2B Commerce · Bangladesh · E-Commerce · Fintech
+
+## ShopUp on APIs.io
+
+Everything profiled for ShopUp is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/shopup/](https://apis.io/providers/shopup/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [ShopUp Areas API](https://apis.io/apis/shopup/shopup-areas-api/) — Deliverable areas / zones
+- [ShopUp Parcels API](https://apis.io/apis/shopup/shopup-parcels-api/) — Create, track and inspect parcels
+- [ShopUp Pickup Stores API](https://apis.io/apis/shopup/shopup-pickup-stores-api/) — Merchant pickup store management
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [shopup-redx](https://apis.io/servers/shopup/shopup-redx/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Shopup Agentic Access](https://apis.io/agentic-access/shopup/shopup-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [REDX Open Areas API](https://apis.io/collections/shopup/open-shopup-areas-api/)
+- [REDX Open Areas Parcels API](https://apis.io/collections/shopup/open-shopup-parcels-api/)
+- [REDX Open Areas Pickup Stores API](https://apis.io/collections/shopup/open-shopup-pickup-stores-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Shopup Redx Overlay](https://apis.io/overlays/shopup/shopup-redx-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Shopup Authentication](https://apis.io/security/shopup/shopup-authentication/)
+- [Shopup Domain Security](https://apis.io/security/shopup/shopup-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://shopup.org)
+- [Documentation](https://redx.com.bd/developer-api/)
+- [Getting started](https://redx.com.bd/developer-api/)
+- [API reference](https://redx.com.bd/developer-api/)
+- [Support](https://redx.com.bd/faq/)
+- [Blog](https://shopup.org/blog)
+- [Privacy policy](https://redx.com.bd/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 35.8** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 50.2 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 10.5 |
+
+**Agent readiness 18.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/shopup/](https://apis.io/providers/shopup/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ShopUp: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/shopup/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
